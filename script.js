@@ -23,3 +23,19 @@ function playRound(computerSelection, playerSelection){
     else
         return "Error";
 };
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let gameNumber = 0; gameNumber < 5; gameNumber++){
+        let gameResult = playRound();
+        if(gameResult == "Computer wins!") {computerScore++}
+        else if(gameResult == "You win!") {playerScore++}
+        else if(gameResult == "Draw!") {playerScore++, computerScore++}
+    };
+
+    if(playerScore > computerScore) {return "You Win!";}
+    else if(playerScore < computerScore) {return "Computer Wins!";}
+    else if (playerScore == computerScore) {return "Draw!";}
+}
